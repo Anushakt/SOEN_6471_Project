@@ -42,3 +42,59 @@ session_start();
  <p></p>
   <p></p>
  </form>
+ 
+ <?php
+ include('../connection.php');
+ $user = $_SESSION['user'];
+ $result=mysqli_query($connection,"SELECT * FROM appointment_tbl WHERE patient_email='$user'") or die(mysqli_error($connection));
+ $i=0;
+ ?>
+ <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Other Names</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Confirm</th>
+    </tr>
+  </thead>
+ <?php
+  while($row=mysqli_fetch_array($result)){
+  	$i++;
+ ?>
+ <tbody>
+    <tr>
+      <th scope="row"><?php echo $i; ?></th>
+      <td><?php echo $row['lname']; ?></td>
+      <td><?php echo $row['oname']; ?></td>
+      <td><?php echo $row['dates']; ?></td>
+      <td><?php echo $row['time']; ?></td>
+      <td><?php 
+            $approval = $row['approval']; 
+          if($approval=='Confirmed'){
+        echo $row['approval'];
+        }else{
+        
+        ?>
+        <form action="" method="post">
+ <button type="submit" class="btn btn-primary" name="id" onclick="return sure()">Confirm</button>
+ <input type="hidden" value="<?php echo $row['book_id']; ?>" name="id"> <?php } ?></form></td>
+    </tr>
+
+<?php 
+}
+?>
+</tbody>
+</table>
+  </div>
+  </body>
+</html>
+<?php
+if(isset($_POST['id'])){
+$id=$_POST['id'];
+mysqli_query($connection,"UPDATE appointment_tbl SET approval='Confirmed' WHERE book_id='$id'" ) or die(mysqli_error($connection)); 
+header("Refresh:3");
+}
+?>
