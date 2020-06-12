@@ -92,3 +92,39 @@ else{
 
 ?>
   <?php echo $fail; ?>
+ <form action="" method="post">
+  <div class="form-group">
+    <label for="email">Username:</label>
+    <input type="email" class="form-control" placeholder="Enter email" id="email" required="required" name="username">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" placeholder="Enter password" id="pwd" required="required" name="password">
+  </div>
+   <div class="form-group">
+    <label for="pwd">User Type:</label>
+  <select class="custom-select" name="user">
+  <option selected>Select user type</option>
+  <option value="1">Staff</option>
+  <option value="2">Patient</option>
+  <option value="3">Admin</option>
+</select>
+  </div>
+  <div class="form-group form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" name="login" class="btn btn-success">Sign In</button>
+  <p></p>
+  <p></p>
+  </form>
+  <form action="patient/patient.php">
+ <p class="text-info">If you are a new user click <button type="submit" class="btn btn-outline-success btn-lg">Sign up</button></p>
+ </form>
+
+</div>
+</div>
+
+</body>
+</html>
