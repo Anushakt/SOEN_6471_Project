@@ -1,9 +1,11 @@
 SOEN6471
 
 Objective
+
 To develop an Icare Web Application by adopting an iterative development process.
 
 Technology Used
+
 •	Database: XAMPP
 •	Server-side Application: Php, Bootstrap
 
