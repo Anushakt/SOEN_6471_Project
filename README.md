@@ -15,3 +15,5 @@ Instructions to run the application
 2  	Select Archive and select the destination of downloaded source code.
 3.	Open browser and goto http://localhost:8080 to begin using application.
 4.	Or you can go to the folder and open the index.php file through browser
+
+NOTE: i)Roles and responsibilities and ii) Minutes of Meeting are in the Documents folder.
